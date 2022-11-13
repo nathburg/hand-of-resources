@@ -17,6 +17,14 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
     expect(resp.body.first_name).toBe('Nathan');
   });
+  it('PUT /customers/1 updates data at id 1', async () => {
+    const resp = await request(app).put('/customers/1').send({
+      first_name: 'Nathan',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.first_name).toBe('Nathan');
+    expect(resp.body.last_name).toBe('Habishaw');
+  });
   it('GET /customers returns all customers', async () => {
     const resp = await request(app).get('/customers');
     expect(resp.status).toBe(200);
