@@ -7,6 +7,16 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('POST /customers should create a new customer', async () => {
+    const resp = await request(app).post('/customers').send({
+      first_name: 'Nathan',
+      last_name: 'Burgess',
+      email: 'nathans.email.address@gmail.com',
+      gender: 'Male',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.first_name).toBe('Nathan');
+  });
   it('GET /customers returns all customers', async () => {
     const resp = await request(app).get('/customers');
     expect(resp.status).toBe(200);
@@ -25,6 +35,7 @@ describe('backend-express-template routes', () => {
       }
     `);
   });
+
   afterAll(() => {
     pool.end();
   });
