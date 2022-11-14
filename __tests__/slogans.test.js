@@ -77,7 +77,6 @@ describe('backend-express-template routes', () => {
       saying: "We're Okay",
     });
     expect(resp.status).toBe(200);
-    console.log(resp.body);
     expect(resp.body.stock).toBe('The Okay Company LLC');
   });
 
@@ -86,7 +85,6 @@ describe('backend-express-template routes', () => {
       stock: 'Nathan',
     });
     expect(resp.status).toBe(200);
-    console.log(resp.body);
     expect(resp.body.stock).toBe('Nathan');
     expect(resp.body.saying).toBe('repurpose out-of-the-box ROI');
   });
