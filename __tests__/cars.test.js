@@ -8,6 +8,17 @@ describe('backend-express-template routes', () => {
     return setup(pool);
   });
 
+  it('POST /cars should create a new car', async () => {
+    const resp = await request(app).post('/cars').send({
+      make: 'Kia',
+      model: 'Rio',
+      year: 2006,
+      VIN: 'WBAYF8C50FD550384',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.model).toBe('Rio');
+  });
+
   it('GET /cars returns array of all cars', async () => {
     const resp = await request(app).get('/cars');
     expect(resp.status).toBe(200);
