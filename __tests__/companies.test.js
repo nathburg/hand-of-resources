@@ -8,6 +8,18 @@ describe('backend-express-template routes', () => {
     return setup(pool);
   });
 
+  it('POST /companies should create a new company', async () => {
+    const resp = await request(app).post('/companies').send({
+      city: 'Vancouver',
+      company: 'The Okay Company',
+      preferred_currency: 'Bitcoin',
+      latitude: '45.8260',
+      country: 'USA',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.company).toBe('The Okay Company');
+  });
+
   it('GET /companies returns all companies', async () => {
     const resp = await request(app).get('/companies');
     expect(resp.status).toBe(200);
