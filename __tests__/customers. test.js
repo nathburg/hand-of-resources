@@ -25,14 +25,22 @@ describe('backend-express-template routes', () => {
     expect(resp.body.first_name).toBe('Nathan');
     expect(resp.body.last_name).toBe('Habishaw');
   });
-  it.skip('DELETE /customers/1 deletes row 1', async () => {
+  it('DELETE /customers/1 deletes row 1', async () => {
     const resp = await request(app).delete('/customers/1');
-    expect(resp.status).toEqual(200);
+    expect(resp.status).toEqual(204);
 
     const customer = await request(app).get('/customers/1');
-    expect(customer.status).toEqual(404);
-    expect(customer.body).toEqual('');
-
+    expect(customer.body).toEqual(null);
+    const customer2 = await request(app).get('/customers/2');
+    expect(customer2.body).toMatchInlineSnapshot(`
+      Object {
+        "email": "zmaccraw1@bbc.co.uk",
+        "first_name": "Zorah",
+        "gender": "Female",
+        "id": 2,
+        "last_name": "Maccraw",
+      }
+    `);
   });
   it('GET /customers returns all customers', async () => {
     const resp = await request(app).get('/customers');
