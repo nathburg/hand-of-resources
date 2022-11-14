@@ -29,4 +29,13 @@ describe('backend-express-template routes', () => {
       }
     `);
   });
+
+  it('POST /slogans should create a new slogan', async () => {
+    const resp = await request(app).post('/slogans').send({
+      stock: 'The Okay Company LLC',
+      slogan: "We're Okay",
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.stock).toBe('The Okay Company LLC');
+  });
 });
