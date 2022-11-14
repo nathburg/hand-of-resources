@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS movies;
 
 create table customers (
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -40,3 +41,21 @@ insert into cars (make, model, year, VIN) values ('Land Rover', 'Defender', 1994
 insert into cars (make, model, year, VIN) values ('Oldsmobile', 'Silhouette', 2003, 'WDDEJ7KB2AA722100');
 insert into cars (make, model, year, VIN) values ('Dodge', 'Durango', 2012, 'JN8AE2KP0F9370207');
 insert into cars (make, model, year, VIN) values ('Subaru', 'Outback', 2008, '2G4WS52JX41646871');
+
+create table movies (
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    title VARCHAR(50),
+	budget VARCHAR(50),
+	genre VARCHAR(50)
+);
+insert into movies (title, budget, genre) values ('Tron', '$7.00', 'Action|Adventure|Sci-Fi');
+insert into movies (title, budget, genre) values ('Red State', '$7.34', 'Horror|Thriller');
+insert into movies (title, budget, genre) values ('Big Lebowski, The', '$0.00', 'Comedy|Crime');
+insert into movies (title, budget, genre) values ('Les modèles de ''Pickpocket''', '$2.93', 'Documentary');
+insert into movies (title, budget, genre) values ('Tonight and Every Night', '$3.26', 'Musical');
+insert into movies (title, budget, genre) values ('Nina Takes a Lover', '$3.54', 'Comedy|Romance');
+insert into movies (title, budget, genre) values ('Raid on Rommel', '$2.06', 'War');
+insert into movies (title, budget, genre) values ('Heavenly Forest', '$7.29', 'Drama|Romance');
+insert into movies (title, budget, genre) values ('My Friend Ivan Lapshin (Moy drug Ivan Lapshin)', '$7.38', 'Drama');
+insert into movies (title, budget, genre) values ('Future Cops (Chao ji xue xiao ba wang)', '$5.14', 'Action');
+
