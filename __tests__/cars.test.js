@@ -19,6 +19,13 @@ describe('backend-express-template routes', () => {
     expect(resp.body.model).toBe('Rio');
   });
 
+  it('PUT /cars/1 updates data at id 1', async () => {
+    const resp = await request(app).put('/cars/1').send({ year: 1945 });
+    expect(resp.status).toBe(200);
+    expect(resp.body.year).toEqual('1945');
+    expect(resp.body.make).toBe('Mercedes-Benz');
+  });
+
   it('GET /cars returns array of all cars', async () => {
     const resp = await request(app).get('/cars');
     expect(resp.status).toBe(200);
