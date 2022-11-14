@@ -8,6 +8,16 @@ describe('backend-express-template routes', () => {
     return setup(pool);
   });
 
+  it('POST /movies should create a new movie', async () => {
+    const resp = await request(app).post('/movies').send({
+      title: 'The Banshees of Inisherin',
+      genre: 'Dark Comedy',
+      budget: '$25',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.budget).toBe('$25');
+  });
+
   it('GET /movies returns all movies', async () => {
     const resp = await request(app).get('/movies');
     expect(resp.status).toBe(200);
