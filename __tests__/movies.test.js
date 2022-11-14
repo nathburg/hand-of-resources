@@ -14,6 +14,19 @@ describe('backend-express-template routes', () => {
     expect(resp.body.length).toBe(10);
   });
 
+  it('GET /movies/1 returns data for movie with id 1', async () => {
+    const resp = await request(app).get('/movies/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "budget": "$7.00",
+        "genre": "Action|Adventure|Sci-Fi",
+        "id": 1,
+        "title": "Tron",
+      }
+    `);
+  });
+
   afterAll(() => {
     pool.end();
   });
