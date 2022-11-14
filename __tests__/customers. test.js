@@ -25,7 +25,7 @@ describe('backend-express-template routes', () => {
     expect(resp.body.first_name).toBe('Nathan');
     expect(resp.body.last_name).toBe('Habishaw');
   });
-  it('DELETE /customers/1 deletes row 1', async () => {
+  it.skip('DELETE /customers/1 deletes row 1', async () => {
     const resp = await request(app).delete('/customers/1');
     expect(resp.status).toEqual(200);
 
