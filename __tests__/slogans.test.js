@@ -91,6 +91,22 @@ describe('backend-express-template routes', () => {
     expect(resp.body.saying).toBe('repurpose out-of-the-box ROI');
   });
 
+  it('DELETE /slogans/1 deletes row 1', async () => {
+    const resp = await request(app).delete('/slogans/1');
+    expect(resp.status).toEqual(204);
+
+    const slogan = await request(app).get('/slogans/1');
+    expect(slogan.body).toEqual(null);
+    const slogan2 = await request(app).get('/slogans/2');
+    expect(slogan2.body).toMatchInlineSnapshot(`
+      Object {
+        "id": 2,
+        "saying": "revolutionize enterprise deliverables",
+        "stock": "Medley Capital Corporation",
+      }
+    `);
+  });
+
   it('GET /slogans/1 returns data for slogan with id 1', async () => {
     const resp = await request(app).get('/slogans/1');
     expect(resp.status).toBe(200);
