@@ -29,6 +29,25 @@ describe('backend-express-template routes', () => {
     expect(resp.body.company).toBe('Brainsphere');
   });
 
+  it('DELETE /companies/1 deletes row 1', async () => {
+    const resp = await request(app).delete('/companies/1');
+    expect(resp.status).toEqual(204);
+
+    const company = await request(app).get('/companies/1');
+    expect(company.body).toEqual(null);
+    const company2 = await request(app).get('/companies/2');
+    expect(company2.body).toMatchInlineSnapshot(`
+      Object {
+        "city": "Famaillá",
+        "company": "Fanoodle",
+        "country": "Argentina",
+        "id": 2,
+        "latitude": "-34.5903044",
+        "preferred_currency": "Peso",
+      }
+    `);
+  });
+
   it('GET /companies returns all companies', async () => {
     const resp = await request(app).get('/companies');
     expect(resp.status).toBe(200);
