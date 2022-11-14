@@ -83,15 +83,15 @@ insert into companies (city, company, preferred_currency, latitude, country) val
 create table slogans (
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	stock VARCHAR(50),
-	slogan VARCHAR(50)
+	saying VARCHAR(50)
 );
-insert into slogans (stock, slogan) values ('Banc of California, Inc.', 'repurpose out-of-the-box ROI');
-insert into slogans (stock, slogan) values ('Medley Capital Corporation', 'revolutionize enterprise deliverables');
-insert into slogans (stock, slogan) values ('Liberty Expedia Holdings, Inc.', 'evolve seamless relationships');
-insert into slogans (stock, slogan) values ('Corvus Pharmaceuticals, Inc.', 'whiteboard leading-edge portals');
-insert into slogans (stock, slogan) values ('Mizuho Financial Group, Inc.', 'seize user-centric niches');
-insert into slogans (stock, slogan) values ('PIMCO Municipal Income Fund', 'deploy interactive infrastructures');
-insert into slogans (stock, slogan) values ('Orthofix International N.V.', 'disintermediate customized ROI');
-insert into slogans (stock, slogan) values ('AllianceBernstein Holding L.P.', 'drive cross-media interfaces');
-insert into slogans (stock, slogan) values ('Ferro Corporation', 'target rich web services');
-insert into slogans (stock, slogan) values ('Cars.com Inc.', 'matrix global functionalities');
+insert into slogans (stock, saying) values ('Banc of California, Inc.', 'repurpose out-of-the-box ROI');
+insert into slogans (stock, saying) values ('Medley Capital Corporation', 'revolutionize enterprise deliverables');
+insert into slogans (stock, saying) values ('Liberty Expedia Holdings, Inc.', 'evolve seamless relationships');
+insert into slogans (stock, saying) values ('Corvus Pharmaceuticals, Inc.', 'whiteboard leading-edge portals');
+insert into slogans (stock, saying) values ('Mizuho Financial Group, Inc.', 'seize user-centric niches');
+insert into slogans (stock, saying) values ('PIMCO Municipal Income Fund', 'deploy interactive infrastructures');
+insert into slogans (stock, saying) values ('Orthofix International N.V.', 'disintermediate customized ROI');
+insert into slogans (stock, saying) values ('AllianceBernstein Holding L.P.', 'drive cross-media interfaces');
+insert into slogans (stock, saying) values ('Ferro Corporation', 'target rich web services');
+insert into slogans (stock, saying) values ('Cars.com Inc.', 'matrix global functionalities');
