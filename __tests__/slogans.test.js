@@ -17,4 +17,16 @@ describe('backend-express-template routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('GET /slogans/1 returns data for flogan with id 1', async () => {
+    const resp = await request(app).get('/slogans/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "id": 1,
+        "slogan": "Banc of California, Inc.",
+        "stock": "Banc of California, Inc.",
+      }
+    `);
+  });
 });
