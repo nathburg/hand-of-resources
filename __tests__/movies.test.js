@@ -26,6 +26,23 @@ describe('backend-express-template routes', () => {
     expect(resp.body.budget).toBe('$7.00');
   });
 
+  it('DELETE /movies/1 deletes row 1', async () => {
+    const resp = await request(app).delete('/movies/1');
+    expect(resp.status).toEqual(204);
+
+    const movie = await request(app).get('/movies/1');
+    expect(movie.body).toEqual(null);
+    const movie2 = await request(app).get('/movies/2');
+    expect(movie2.body).toMatchInlineSnapshot(`
+      Object {
+        "budget": "$7.34",
+        "genre": "Horror|Thriller",
+        "id": 2,
+        "title": "Red State",
+      }
+    `);
+  });
+
   it('GET /movies returns all movies', async () => {
     const resp = await request(app).get('/movies');
     expect(resp.status).toBe(200);
