@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS cars;
 DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS companies;
 
 create table customers (
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -59,3 +60,21 @@ insert into movies (title, budget, genre) values ('Heavenly Forest', '$7.29', 'D
 insert into movies (title, budget, genre) values ('My Friend Ivan Lapshin (Moy drug Ivan Lapshin)', '$7.38', 'Drama');
 insert into movies (title, budget, genre) values ('Future Cops (Chao ji xue xiao ba wang)', '$5.14', 'Action');
 
+create table companies (
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	city VARCHAR(50),
+	company VARCHAR(50),
+	preferred_currency VARCHAR(50),
+	latitude VARCHAR(50),
+	country VARCHAR(50)
+);
+insert into companies (city, company, preferred_currency, latitude, country) values ('Khokhryaki', 'Brainsphere', 'Ruble', 56.9154663, 'Russia');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Famaillá', 'Fanoodle', 'Peso', -34.5903044, 'Argentina');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Kongwan', 'Rhynyx', 'Yuan Renminbi', 31.566634, 'China');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Linhares', 'Ainyx', 'Real', -19.39656, 'Brazil');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Hetou', 'Brainlounge', 'Yuan Renminbi', 24.3520171, 'China');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Höfn', 'Skibox', 'Krona', 64.1272315, 'Iceland');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Niny', 'Blognation', 'Ruble', 44.4868448, 'Russia');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Lewograran', 'Photojam', 'Rupiah', -8.4702242, 'Indonesia');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Beima', 'Avaveo', 'Yuan Renminbi', 37.617937, 'China');
+insert into companies (city, company, preferred_currency, latitude, country) values ('Khursā', 'Yambee', 'Shekel', 31.440961, 'Palestinian Territory');
