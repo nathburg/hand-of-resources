@@ -14,6 +14,19 @@ describe('backend-express-template routes', () => {
     expect(resp.body.length).toEqual(10);
   });
 
+  it('GET /cars/1 returns info for car with id 1', async () => {
+    const resp = await request(app).get('/cars/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "id": 1,
+        "make": "Mercedes-Benz",
+        "model": "CLK-Class",
+        "year": "2001",
+      }
+    `);
+  });
+
   afterAll(() => {
     pool.end();
   });
