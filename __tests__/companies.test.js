@@ -20,6 +20,15 @@ describe('backend-express-template routes', () => {
     expect(resp.body.company).toBe('The Okay Company');
   });
 
+  it('PUT /companies/1 updates data at id 1', async () => {
+    const resp = await request(app).put('/companies/1').send({
+      preferred_currency: 'Dollar',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.preferred_currency).toBe('Dollar');
+    expect(resp.body.company).toBe('Brainsphere');
+  });
+
   it('GET /companies returns all companies', async () => {
     const resp = await request(app).get('/companies');
     expect(resp.status).toBe(200);
