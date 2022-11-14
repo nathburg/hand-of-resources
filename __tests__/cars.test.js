@@ -26,6 +26,23 @@ describe('backend-express-template routes', () => {
     expect(resp.body.make).toBe('Mercedes-Benz');
   });
 
+  it('DELETE /cars/1 deletes row 1', async () => {
+    const resp = await request(app).delete('/cars/1');
+    expect(resp.status).toEqual(204);
+
+    const car = await request(app).get('/cars/1');
+    expect(car.body).toEqual(null);
+    const car2 = await request(app).get('/cars/2');
+    expect(car2.body).toMatchInlineSnapshot(`
+      Object {
+        "id": 2,
+        "make": "Dodge",
+        "model": "Ram Van 1500",
+        "year": "2001",
+      }
+    `);
+  });
+
   it('GET /cars returns array of all cars', async () => {
     const resp = await request(app).get('/cars');
     expect(resp.status).toBe(200);
