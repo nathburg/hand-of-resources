@@ -17,6 +17,14 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
     expect(resp.body.budget).toBe('$25');
   });
+  it('PUT /movies/1 updates data at id 1', async () => {
+    const resp = await request(app).put('/movies/1').send({
+      title: '2022: A Based Odyssey',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.title).toBe('2022: A Based Odyssey');
+    expect(resp.body.budget).toBe('$7.00');
+  });
 
   it('GET /movies returns all movies', async () => {
     const resp = await request(app).get('/movies');
