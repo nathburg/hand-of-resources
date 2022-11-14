@@ -14,6 +14,21 @@ describe('backend-express-template routes', () => {
     expect(resp.body.length).toBe(10);
   });
 
+  it('GET /companies/1 returns data for companies with id 1', async () => {
+    const resp = await request(app).get('/companies/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "city": "Khokhryaki",
+        "company": "Brainsphere",
+        "country": "Russia",
+        "id": 1,
+        "latitude": "56.9154663",
+        "preferred_currency": "Ruble",
+      }
+    `);
+  });
+
   afterAll(() => {
     pool.end();
   });
